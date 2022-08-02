@@ -1,0 +1,26 @@
+# The docker-compose.yml file describes the services that make your app. 
+# In this tool those services are Postgres DB + cloudbeaver
+
+version: "3.8"
+
+services:
+  database:
+    image: postgres:latest
+    container_name: postgresql
+    restart: always
+    hostname: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - '5432:5432'
+  db_client:
+    image: dbeaver/cloudbeaver:latest
+    container_name: cloudbeaver
+    depends_on:
+      - database
+    restart: always
+    hostname: localhost
+    ports:
+      - '8080:8978'
