@@ -1,5 +1,5 @@
 # The docker-compose.yml file describes the services that make your app. 
-# In this tool those services are Postgres DB + cloudbeaver
+# In this those services are Postgres DB + cloudbeaver
 
 version: "3.8"
 
