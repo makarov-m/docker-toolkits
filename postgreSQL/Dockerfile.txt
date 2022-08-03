@@ -1,5 +1,13 @@
 FROM postgres:latest
+
+# setup the env for Postgres
 ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=postgres
 ENV POSTGRES_DB=world
+ENV PGDATA=/var/lib/postgresql/data/pgdata
+
+# Expose our port to the world
+# EXPOSE 5432
+
+# Copy code from your local context to the image working directory
 COPY world.sql /docker-entrypoint-initdb.d/
