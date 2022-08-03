@@ -41,6 +41,10 @@ docker run --name my-postgres-container \
 ```
 docker stop my-postgres-container
 ```
+Useful linkes:
+- [habr.com](https://habr.com/ru/post/578744/)
+- [hub.docker.com](https://hub.docker.com/_/postgres/)
+
 
 ## 2. PostgreSQL + Cloudbeaver 
 <a name="PostgreSQL+Cloudbeaver"/> 
