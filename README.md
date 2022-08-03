@@ -7,16 +7,29 @@
 ## 1. PostgreSQL 
 <a name="PostgreSQL"/>
 
-**Description:** Run Docker container with a postgre database inside. Database sample from [www.postgresql.org](https://www.postgresql.org/ftp/projects/pgFoundry/dbsamples/world/dbsamples-0.1/)
+**Description:** Run Docker container with a postgre database inside. Database sample from [www.postgresql.org](https://www.postgresql.org/ftp/projects/pgFoundry/dbsamples/world/dbsamples-0.1/). Database files will be stored in your local folder.
 
 1. Clone repository 
 
 2. Launch commands in terminal
+
 ```
+# move to the work dir
 cd {path/folder_name}
-docker build . -f Dockerfile.txt -t my-test-postgres-db
-docker run -d --name my-postgres-container -p 5432:5432 my-test-postgres-db
 ```
+
+```
+# buuild the image
+docker build . -f Dockerfile.txt -t my-test-postgres-db
+```
+
+```
+# run the container
+docker run --name my-postgres-container \
+	-p 5432:5432 \
+	-d -v "$(pwd)":/var/lib/postgresql/data -v "$(pwd)":/docker-entrypoint-initdb.d my-test-postgres-db
+```
+
 3. Connect to database using your database client
 
 - Host: localhost
