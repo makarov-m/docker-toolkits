@@ -66,6 +66,10 @@ docker-compose up -d
 - User: postgres
 - Password: postgres
 
+if there is no option to edit DB run the following query:
+```
+set default_transaction_read_only = off;
+```
 4. Stop the container in terminal when you finish
 ```
 docker-compose down
